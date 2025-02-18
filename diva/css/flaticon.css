@@ -1,0 +1,38 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 13/07/2018 08:37
+  	*/
+
+@font-face {
+  font-family: "Flaticon";
+  src: url("../icon-fonts/Flaticon.eot");
+  src: url("../icon-fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("../icon-fonts/Flaticon.woff") format("woff"),
+       url("../icon-fonts/Flaticon.ttf") format("truetype"),
+       url("../icon-fonts/Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("../icon-fonts/Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+[class^="flaticon-"]:before, [class*=" flaticon-"]:before,
+[class^="flaticon-"]:after, [class*=" flaticon-"]:after {   
+  font-family: Flaticon;
+  font-style: normal;
+}
+.flaticon-009-makeup-5:before { content: "\f108"; }
+.flaticon-013-facial-mask-1:before { content: "\f10c"; }
+.flaticon-015-facial-mask:before { content: "\f10e"; }
+.flaticon-016-woman:before { content: "\f10f"; }
+.flaticon-017-soap:before { content: "\f110"; }
+.flaticon-020-mirror:before { content: "\f113"; }
+.flaticon-030-cream-1:before { content: "\f11d"; }
+.flaticon-039-make-up:before { content: "\f126"; }
+.flaticon-045-eyelid:before { content: "\f12c"; }
+.flaticon-048-makeup:before { content: "\f12f"; }

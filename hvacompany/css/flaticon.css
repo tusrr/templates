@@ -1,0 +1,59 @@
+	/*
+  	Flaticon icon font: Flaticon
+  	Creation date: 24/08/2018 11:03
+  	*/
+
+	@font-face {
+	  font-family: "Flaticon";
+	  src: url("../fonts/Flaticon.eot");
+	  src: url("../fonts/Flaticon.eot?#iefix") format("embedded-opentype"),
+	    url("../fonts/Flaticon.woff") format("woff"),
+	    url("../fonts/Flaticon.ttf") format("truetype"),
+	    url("../fonts/Flaticon.svg#Flaticon") format("svg");
+	  font-weight: normal;
+	  font-style: normal;
+	}
+
+	@media screen and (-webkit-min-device-pixel-ratio:0) {
+	  @font-face {
+	    font-family: "Flaticon";
+	    src: url("../fonts/Flaticon.svg#Flaticon") format("svg");
+	  }
+	}
+
+	[class^="flaticon-"]:before,
+	[class*=" flaticon-"]:before,
+	[class^="flaticon-"]:after,
+	[class*=" flaticon-"]:after {
+	  font-family: Flaticon;
+	  font-size: 38px;
+	  font-style: normal;
+	}
+
+	.flaticon-009-tea-cup:before {
+	  content: "\f108";
+	}
+
+	.flaticon-017-tools:before {
+	  content: "\f110";
+	}
+
+	.flaticon-018-idea:before {
+	  content: "\f111";
+	}
+
+	.flaticon-025-pipette:before {
+	  content: "\f118";
+	}
+
+	.flaticon-028-settings:before {
+	  content: "\f11b";
+	}
+
+	.flaticon-035-paint-roller:before {
+	  content: "\f122";
+	}
+
+	.flaticon-039-startup:before {
+	  content: "\f126";
+	}
