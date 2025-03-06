@@ -1,0 +1,193 @@
+
+var docHead = document.head || document.getElementsByTagName("head" )[0] || document.documentElement;
+window.userPasswordMinLen = '8'; 
+window.userPasswordMaxLen = '254';
+var zaConstants = {"setSameSite":true,"csrfCookie":"iamcsr","dcc":false,"v2_iam_tpkg_url":"/v2/components/tp_pkg","copyright_year":"2025","iam_css_url_static":"/static","accountsServer":"https://glamourgallery-demo.zohoecommerce.com","csrfParam":"iamcsrcoo","js_content":"","css_content":"","iam_css_url":"/styles","iam_img_url":"/images","css_url":"//glamourgallery-demo.zohoecommerce.com/accounts","iam_js_url_static":"/static","img_url":"//glamourgallery-demo.zohoecommerce.com/accounts","accountsCookieDomain":".zoho.com","js_url":"//glamourgallery-demo.zohoecommerce.com/accounts","v2_iam_css_url":"/v2/components/css","iam_img_url_static":"/static","contextpath":"/accounts","v2_iam_img_url":"/v2/components/images"};
+window.ZACountryCodeDetails = [{"ISO2_CODE":"AF","DIALING_CODE":93,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Afghanistan"},{"ISO2_CODE":"AL","DIALING_CODE":355,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Albania"},{"ISO2_CODE":"DZ","DIALING_CODE":213,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Algeria"},{"ISO2_CODE":"AS","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"American Samoa"},{"ISO2_CODE":"AD","DIALING_CODE":376,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Andorra"},{"ISO2_CODE":"AO","DIALING_CODE":244,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Angola"},{"ISO2_CODE":"AI","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Anguilla"},{"ISO2_CODE":"AQ","DIALING_CODE":672,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Antarctica"},{"ISO2_CODE":"AG","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Antigua & Barbuda"},{"ISO2_CODE":"AR","DIALING_CODE":54,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Argentina"},{"ISO2_CODE":"AM","DIALING_CODE":374,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Armenia"},{"ISO2_CODE":"AW","DIALING_CODE":297,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Aruba"},{"ISO2_CODE":"AU","DIALING_CODE":61,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Australia"},{"ISO2_CODE":"AT","DIALING_CODE":43,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Austria"},{"ISO2_CODE":"AZ","DIALING_CODE":994,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Azerbaijan"},{"ISO2_CODE":"BS","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Bahamas"},{"ISO2_CODE":"BH","DIALING_CODE":973,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Bahrain"},{"ISO2_CODE":"BD","DIALING_CODE":880,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Bangladesh"},{"ISO2_CODE":"BB","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Barbados"},{"ISO2_CODE":"BY","DIALING_CODE":375,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Belarus"},{"ISO2_CODE":"BE","DIALING_CODE":32,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Belgium"},{"ISO2_CODE":"BZ","DIALING_CODE":501,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Belize"},{"ISO2_CODE":"BJ","DIALING_CODE":229,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Benin"},{"ISO2_CODE":"BM","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Bermuda"},{"ISO2_CODE":"BT","DIALING_CODE":975,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Bhutan"},{"ISO2_CODE":"BO","DIALING_CODE":591,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Bolivia"},{"ISO2_CODE":"BA","DIALING_CODE":387,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Bosnia and Herzegovina"},{"ISO2_CODE":"BW","DIALING_CODE":267,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Botswana"},{"ISO2_CODE":"BV","DIALING_CODE":47,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Bouvet Island"},{"ISO2_CODE":"BR","DIALING_CODE":55,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Brazil"},{"ISO2_CODE":"IO","DIALING_CODE":246,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"British Indian Ocean Territory"},{"ISO2_CODE":"VG","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"British Virgin Islands"},{"ISO2_CODE":"BN","DIALING_CODE":673,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Brunei"},{"ISO2_CODE":"BG","DIALING_CODE":359,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Bulgaria"},{"ISO2_CODE":"BF","DIALING_CODE":226,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Burkina Faso"},{"ISO2_CODE":"BI","DIALING_CODE":257,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Burundi"},{"ISO2_CODE":"KH","DIALING_CODE":855,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Cambodia"},{"ISO2_CODE":"CM","DIALING_CODE":237,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Cameroon"},{"ISO2_CODE":"CA","DIALING_CODE":1,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Canada"},{"ISO2_CODE":"CV","DIALING_CODE":238,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Cape Verde"},{"ISO2_CODE":"BQ","DIALING_CODE":599,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Caribbean Netherlands"},{"ISO2_CODE":"KY","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Cayman Islands"},{"ISO2_CODE":"CF","DIALING_CODE":236,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Central African Republic"},{"ISO2_CODE":"TD","DIALING_CODE":235,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Chad"},{"ISO2_CODE":"CL","DIALING_CODE":56,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Chile"},{"ISO2_CODE":"CN","DIALING_CODE":86,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"China"},{"ISO2_CODE":"CX","DIALING_CODE":61,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Christmas Island"},{"ISO2_CODE":"CC","DIALING_CODE":61,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Cocos (Keeling) Islands"},{"ISO2_CODE":"CO","DIALING_CODE":57,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Colombia"},{"ISO2_CODE":"KM","DIALING_CODE":269,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Comoros"},{"ISO2_CODE":"CG","DIALING_CODE":242,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Congo - Brazzaville"},{"ISO2_CODE":"CD","DIALING_CODE":243,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Congo - Kinshasa"},{"ISO2_CODE":"CK","DIALING_CODE":682,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Cook Islands"},{"ISO2_CODE":"CR","DIALING_CODE":506,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Costa Rica"},{"ISO2_CODE":"HR","DIALING_CODE":385,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Croatia"},{"ISO2_CODE":"CU","DIALING_CODE":53,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Cuba"},{"ISO2_CODE":"CW","DIALING_CODE":599,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Curaçao"},{"ISO2_CODE":"CY","DIALING_CODE":357,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Cyprus"},{"ISO2_CODE":"CZ","DIALING_CODE":420,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Czechia"},{"ISO2_CODE":"CI","DIALING_CODE":225,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Côte d\u2019Ivoire"},{"ISO2_CODE":"DK","DIALING_CODE":45,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Denmark"},{"ISO2_CODE":"DJ","DIALING_CODE":253,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Djibouti"},{"ISO2_CODE":"DM","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Dominica"},{"ISO2_CODE":"DO","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Dominican Republic"},{"ISO2_CODE":"EC","DIALING_CODE":593,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Ecuador"},{"ISO2_CODE":"EG","DIALING_CODE":20,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Egypt"},{"ISO2_CODE":"SV","DIALING_CODE":503,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"El Salvador"},{"ISO2_CODE":"GQ","DIALING_CODE":240,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Equatorial Guinea"},{"ISO2_CODE":"ER","DIALING_CODE":291,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Eritrea"},{"ISO2_CODE":"EE","DIALING_CODE":372,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Estonia"},{"ISO2_CODE":"ET","DIALING_CODE":251,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Ethiopia"},{"ISO2_CODE":"FK","DIALING_CODE":500,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Falkland Islands"},{"ISO2_CODE":"FO","DIALING_CODE":298,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Faroe Islands"},{"ISO2_CODE":"FJ","DIALING_CODE":679,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Fiji"},{"ISO2_CODE":"FI","DIALING_CODE":358,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Finland"},{"ISO2_CODE":"FR","DIALING_CODE":33,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"France"},{"ISO2_CODE":"GF","DIALING_CODE":594,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"French Guiana"},{"ISO2_CODE":"PF","DIALING_CODE":689,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"French Polynesia"},{"ISO2_CODE":"TF","DIALING_CODE":262,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"French Southern Territories"},{"ISO2_CODE":"GA","DIALING_CODE":241,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Gabon"},{"ISO2_CODE":"GM","DIALING_CODE":220,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Gambia"},{"ISO2_CODE":"GE","DIALING_CODE":995,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Georgia"},{"ISO2_CODE":"DE","DIALING_CODE":49,"NEWSLETTER_MODE":3,"DISPLAY_NAME":"Germany"},{"ISO2_CODE":"GH","DIALING_CODE":233,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Ghana"},{"ISO2_CODE":"GI","DIALING_CODE":350,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Gibraltar"},{"ISO2_CODE":"GR","DIALING_CODE":30,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Greece"},{"ISO2_CODE":"GL","DIALING_CODE":299,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Greenland"},{"ISO2_CODE":"GD","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Grenada"},{"ISO2_CODE":"GP","DIALING_CODE":590,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Guadeloupe"},{"ISO2_CODE":"GU","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Guam"},{"ISO2_CODE":"GT","DIALING_CODE":502,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Guatemala"},{"ISO2_CODE":"GG","DIALING_CODE":44,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Guernsey"},{"ISO2_CODE":"GN","DIALING_CODE":224,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Guinea"},{"ISO2_CODE":"GW","DIALING_CODE":245,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Guinea-Bissau"},{"ISO2_CODE":"GY","DIALING_CODE":592,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Guyana"},{"ISO2_CODE":"HT","DIALING_CODE":509,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Haiti"},{"ISO2_CODE":"HM","DIALING_CODE":672,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Heard & McDonald Islands"},{"ISO2_CODE":"HN","DIALING_CODE":504,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Honduras"},{"ISO2_CODE":"HK","DIALING_CODE":852,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Hong Kong"},{"ISO2_CODE":"HU","DIALING_CODE":36,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Hungary"},{"ISO2_CODE":"IS","DIALING_CODE":354,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Iceland"},{"ISO2_CODE":"IN","DIALING_CODE":91,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"India"},{"ISO2_CODE":"ID","DIALING_CODE":62,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Indonesia"},{"ISO2_CODE":"IR","DIALING_CODE":98,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Iran"},{"ISO2_CODE":"IQ","DIALING_CODE":964,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Iraq"},{"ISO2_CODE":"IE","DIALING_CODE":353,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Ireland"},{"ISO2_CODE":"IM","DIALING_CODE":44,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Isle of Man"},{"ISO2_CODE":"IL","DIALING_CODE":972,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Israel"},{"ISO2_CODE":"IT","DIALING_CODE":39,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Italy"},{"ISO2_CODE":"JM","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Jamaica"},{"ISO2_CODE":"JP","DIALING_CODE":81,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Japan"},{"ISO2_CODE":"JE","DIALING_CODE":44,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Jersey"},{"ISO2_CODE":"JO","DIALING_CODE":962,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Jordan"},{"ISO2_CODE":"KZ","DIALING_CODE":7,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Kazakhstan"},{"ISO2_CODE":"KE","DIALING_CODE":254,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Kenya"},{"ISO2_CODE":"KI","DIALING_CODE":686,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Kiribati"},{"ISO2_CODE":"XK","DIALING_CODE":383,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Kosovo"},{"ISO2_CODE":"KW","DIALING_CODE":965,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Kuwait"},{"ISO2_CODE":"KG","DIALING_CODE":996,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Kyrgyzstan"},{"ISO2_CODE":"LA","DIALING_CODE":856,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Laos"},{"ISO2_CODE":"LV","DIALING_CODE":371,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Latvia"},{"ISO2_CODE":"LB","DIALING_CODE":961,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Lebanon"},{"ISO2_CODE":"LS","DIALING_CODE":266,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Lesotho"},{"ISO2_CODE":"LR","DIALING_CODE":231,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Liberia"},{"ISO2_CODE":"LY","DIALING_CODE":218,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Libya"},{"ISO2_CODE":"LI","DIALING_CODE":423,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Liechtenstein"},{"ISO2_CODE":"LT","DIALING_CODE":370,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Lithuania"},{"ISO2_CODE":"LU","DIALING_CODE":352,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Luxembourg"},{"ISO2_CODE":"MO","DIALING_CODE":853,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Macao"},{"ISO2_CODE":"MK","DIALING_CODE":389,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Macedonia"},{"ISO2_CODE":"MG","DIALING_CODE":261,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Madagascar"},{"ISO2_CODE":"MW","DIALING_CODE":265,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Malawi"},{"ISO2_CODE":"MY","DIALING_CODE":60,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Malaysia"},{"ISO2_CODE":"MV","DIALING_CODE":960,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Maldives"},{"ISO2_CODE":"ML","DIALING_CODE":223,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Mali"},{"ISO2_CODE":"MT","DIALING_CODE":356,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Malta"},{"ISO2_CODE":"MH","DIALING_CODE":692,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Marshall Islands"},{"ISO2_CODE":"MQ","DIALING_CODE":596,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Martinique"},{"ISO2_CODE":"MR","DIALING_CODE":222,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Mauritania"},{"ISO2_CODE":"MU","DIALING_CODE":230,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Mauritius"},{"ISO2_CODE":"YT","DIALING_CODE":262,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Mayotte"},{"ISO2_CODE":"MX","DIALING_CODE":52,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Mexico"},{"ISO2_CODE":"FM","DIALING_CODE":691,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Micronesia"},{"ISO2_CODE":"MD","DIALING_CODE":373,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Moldova"},{"ISO2_CODE":"MC","DIALING_CODE":377,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Monaco"},{"ISO2_CODE":"MN","DIALING_CODE":976,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Mongolia"},{"ISO2_CODE":"ME","DIALING_CODE":382,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Montenegro"},{"ISO2_CODE":"MS","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Montserrat"},{"ISO2_CODE":"MA","DIALING_CODE":212,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Morocco"},{"ISO2_CODE":"MZ","DIALING_CODE":258,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Mozambique"},{"ISO2_CODE":"MM","DIALING_CODE":95,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Myanmar (Burma)"},{"ISO2_CODE":"NA","DIALING_CODE":264,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Namibia"},{"ISO2_CODE":"NR","DIALING_CODE":674,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Nauru"},{"ISO2_CODE":"NP","DIALING_CODE":977,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Nepal"},{"ISO2_CODE":"NL","DIALING_CODE":31,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Netherlands"},{"ISO2_CODE":"NC","DIALING_CODE":687,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"New Caledonia"},{"ISO2_CODE":"NZ","DIALING_CODE":64,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"New Zealand"},{"ISO2_CODE":"NI","DIALING_CODE":505,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Nicaragua"},{"ISO2_CODE":"NE","DIALING_CODE":227,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Niger"},{"ISO2_CODE":"NG","DIALING_CODE":234,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Nigeria"},{"ISO2_CODE":"NU","DIALING_CODE":683,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Niue"},{"ISO2_CODE":"NF","DIALING_CODE":672,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Norfolk Island"},{"ISO2_CODE":"KP","DIALING_CODE":850,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"North Korea"},{"ISO2_CODE":"MP","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Northern Mariana Islands"},{"ISO2_CODE":"NO","DIALING_CODE":47,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Norway"},{"ISO2_CODE":"OM","DIALING_CODE":968,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Oman"},{"ISO2_CODE":"PK","DIALING_CODE":92,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Pakistan"},{"ISO2_CODE":"PW","DIALING_CODE":680,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Palau"},{"ISO2_CODE":"PS","DIALING_CODE":970,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Palestinian Territories"},{"ISO2_CODE":"PA","DIALING_CODE":507,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Panama"},{"ISO2_CODE":"PG","DIALING_CODE":675,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Papua New Guinea"},{"ISO2_CODE":"PY","DIALING_CODE":595,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Paraguay"},{"ISO2_CODE":"PE","DIALING_CODE":51,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Peru"},{"ISO2_CODE":"PH","DIALING_CODE":63,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Philippines"},{"ISO2_CODE":"PN","DIALING_CODE":64,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Pitcairn Islands"},{"ISO2_CODE":"PL","DIALING_CODE":48,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Poland"},{"ISO2_CODE":"PT","DIALING_CODE":351,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Portugal"},{"ISO2_CODE":"PR","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Puerto Rico"},{"ISO2_CODE":"QA","DIALING_CODE":974,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Qatar"},{"ISO2_CODE":"RO","DIALING_CODE":40,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Romania"},{"ISO2_CODE":"RU","DIALING_CODE":7,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Russia"},{"ISO2_CODE":"RW","DIALING_CODE":250,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Rwanda"},{"ISO2_CODE":"RE","DIALING_CODE":262,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Réunion"},{"ISO2_CODE":"WS","DIALING_CODE":685,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Samoa"},{"ISO2_CODE":"SM","DIALING_CODE":378,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"San Marino"},{"ISO2_CODE":"SA","DIALING_CODE":966,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Saudi Arabia"},{"ISO2_CODE":"SN","DIALING_CODE":221,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Senegal"},{"ISO2_CODE":"RS","DIALING_CODE":381,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Serbia"},{"ISO2_CODE":"SC","DIALING_CODE":248,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Seychelles"},{"ISO2_CODE":"SL","DIALING_CODE":232,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Sierra Leone"},{"ISO2_CODE":"SG","DIALING_CODE":65,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Singapore"},{"ISO2_CODE":"SX","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Sint Maarten"},{"ISO2_CODE":"SK","DIALING_CODE":421,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Slovakia"},{"ISO2_CODE":"SI","DIALING_CODE":386,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Slovenia"},{"ISO2_CODE":"SB","DIALING_CODE":677,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Solomon Islands"},{"ISO2_CODE":"SO","DIALING_CODE":252,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Somalia"},{"ISO2_CODE":"ZA","DIALING_CODE":27,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"South Africa"},{"ISO2_CODE":"GS","DIALING_CODE":500,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"South Georgia & South Sandwich Islands"},{"ISO2_CODE":"KR","DIALING_CODE":82,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"South Korea"},{"ISO2_CODE":"SS","DIALING_CODE":211,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"South Sudan"},{"ISO2_CODE":"ES","DIALING_CODE":34,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Spain"},{"ISO2_CODE":"LK","DIALING_CODE":94,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Sri Lanka"},{"ISO2_CODE":"BL","DIALING_CODE":590,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"St. Barthélemy"},{"ISO2_CODE":"SH","DIALING_CODE":290,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"St. Helena"},{"ISO2_CODE":"KN","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"St. Kitts & Nevis"},{"ISO2_CODE":"LC","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"St. Lucia"},{"ISO2_CODE":"MF","DIALING_CODE":590,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"St. Martin"},{"ISO2_CODE":"PM","DIALING_CODE":508,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"St. Pierre & Miquelon"},{"ISO2_CODE":"VC","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"St. Vincent & Grenadines"},{"ISO2_CODE":"SD","DIALING_CODE":249,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Sudan"},{"ISO2_CODE":"SR","DIALING_CODE":597,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Suriname"},{"ISO2_CODE":"SJ","DIALING_CODE":47,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Svalbard & Jan Mayen"},{"ISO2_CODE":"SZ","DIALING_CODE":268,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Swaziland"},{"ISO2_CODE":"SE","DIALING_CODE":46,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"Sweden"},{"ISO2_CODE":"CH","DIALING_CODE":41,"NEWSLETTER_MODE":3,"DISPLAY_NAME":"Switzerland"},{"ISO2_CODE":"SY","DIALING_CODE":963,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Syria"},{"ISO2_CODE":"ST","DIALING_CODE":239,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"São Tomé & Príncipe"},{"ISO2_CODE":"TW","DIALING_CODE":886,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Taiwan"},{"ISO2_CODE":"TJ","DIALING_CODE":992,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Tajikistan"},{"ISO2_CODE":"TZ","DIALING_CODE":255,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Tanzania"},{"ISO2_CODE":"TH","DIALING_CODE":66,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Thailand"},{"ISO2_CODE":"TL","DIALING_CODE":670,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Timor-Leste"},{"ISO2_CODE":"TG","DIALING_CODE":228,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Togo"},{"ISO2_CODE":"TK","DIALING_CODE":690,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Tokelau"},{"ISO2_CODE":"TO","DIALING_CODE":676,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Tonga"},{"ISO2_CODE":"TT","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Trinidad & Tobago"},{"ISO2_CODE":"TN","DIALING_CODE":216,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Tunisia"},{"ISO2_CODE":"TR","DIALING_CODE":90,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Turkey"},{"ISO2_CODE":"TM","DIALING_CODE":993,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Turkmenistan"},{"ISO2_CODE":"TC","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Turks & Caicos Islands"},{"ISO2_CODE":"TV","DIALING_CODE":688,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Tuvalu"},{"ISO2_CODE":"UM","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"U.S. Outlying Islands"},{"ISO2_CODE":"VI","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"U.S. Virgin Islands"},{"ISO2_CODE":"UG","DIALING_CODE":256,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Uganda"},{"ISO2_CODE":"UA","DIALING_CODE":380,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Ukraine"},{"ISO2_CODE":"AE","DIALING_CODE":971,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"United Arab Emirates"},{"ISO2_CODE":"GB","DIALING_CODE":44,"NEWSLETTER_MODE":2,"DISPLAY_NAME":"United Kingdom"},{"ISO2_CODE":"US","DIALING_CODE":1,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"United States"},{"ISO2_CODE":"UY","DIALING_CODE":598,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Uruguay"},{"ISO2_CODE":"UZ","DIALING_CODE":998,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Uzbekistan"},{"ISO2_CODE":"VU","DIALING_CODE":678,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Vanuatu"},{"ISO2_CODE":"VA","DIALING_CODE":379,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Vatican City"},{"ISO2_CODE":"VE","DIALING_CODE":58,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Venezuela"},{"ISO2_CODE":"VN","DIALING_CODE":84,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Vietnam"},{"ISO2_CODE":"WF","DIALING_CODE":681,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Wallis & Futuna"},{"ISO2_CODE":"EH","DIALING_CODE":212,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Western Sahara"},{"ISO2_CODE":"YE","DIALING_CODE":967,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Yemen"},{"ISO2_CODE":"ZM","DIALING_CODE":260,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Zambia"},{"ISO2_CODE":"ZW","DIALING_CODE":263,"NEWSLETTER_MODE":0,"DISPLAY_NAME":"Zimbabwe"},{"ISO2_CODE":"AX","NEWSLETTER_MODE":0,"DISPLAY_NAME":"Åland Islands"},{"ISO2_CODE":"AC","DIALING_CODE":247,"DISPLAY_NAME":"Ascension"},{"ISO2_CODE":"DG","DIALING_CODE":246,"DISPLAY_NAME":"Diego Garcia"},{"ISO2_CODE":"AN","DIALING_CODE":599,"DISPLAY_NAME":"Netherlands Antilles"}];
+window.ZADefaultCountry = 'IN';
+window.ZADefaultState = "";
+window.ZACountryStateDetails = {};
+window.loadCountryOptions = false;
+var uriPrefix = '/accounts/p/3-10082778544';
+var captchaPrefix = '/accounts/p';
+var isCDNEnabled = Boolean("true");
+var temp_token = 'ba4e1b2bff292b855d9a9fb3d6415d11b7baf5827ceddbd41af1796be086d399a361564805c9a34d41991af87375c2b38331c3586fa1e882310458c275ef3fb69ca7f743c6323a8b9e9e4826a987703dbb9fdffdf7ee9ac506336a2125f18820a5d0fd47bdafaeca88cb96b11118c7c82abc44d95479e7445384baefbe22b43062f0088fdb5e52eba3054b9b9c982ec014cc5dbfccce43a32d4d35cc288dffa7';
+var loginIdChanged =false;
+var isMobile = parseInt('0');
+var isSplitfield = Boolean("");
+var SplitInputClone;
+var showMobileNoPlaceholder = Boolean("");
+var otp_length=7;
+var payloadEncryptionPublicKey = '{"currentTime":1741173052270,"publicKey":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyuuTN3UvHqxgFzTBYTCGZ5B7lwzhYS8MAYw4wWTZfOXQk2bBJ36A9B2IsQs/fVxtIxIHJBAb+zUigFEnqhBgJOAYyTxFuK01DpZjkE2puGL+CAntSlgzpyZDjQNfWWsdoOK+8ba9X+uNE9OykfR0b89+jbmjBSqYIoeWtamGCgDlQ+9OTd0geb7/ltzCLoXuszMnbNm21CJZp37Z/xw5e4W3jTp95XP6pRHjLitGahoVKzQKNOOxD7u1T6Ra2J+dsOJckHOg+aX7QBKk0zzQRy1wdpsre8b2Dj9WHSgqQ1AjJb6x/VzHXbIC0HVn89KoCT0ntxAjB//hAv9lp6WpJwIDAQAB","isPayloadEncryptionEnabled":false}';
+var iam_contextpath = "";
+var zero_included_countrylist = ["CI"];
+var hideUVFlag = false;
+	window.loadCountryOptions = "false";
+var resIntegrity = {};
+window.requireEnabled = typeof window.require==='function'&&typeof window.requirejs==='function' && window.requirejs.config != undefined;
+includeScript("/accounts/p/3-10082778544"+"/encryption/script");
+	resIntegrity = {"https://static.zohocdn.com/iam/accounts/js/tplibs/xregexp-all.2a67efb28253461665e6cd92f41b19b0.js":"","https://static.zohocdn.com/iam/accounts/js/tplibs/jquery/jquery-3.7.1.min.2c872dbe60f4ba70fb85356113d8b35e.js":"","https://static.zohocdn.com/iam/accounts/js/tplibs/jquery/jquery.validate.min.24ae1ca673cbebd97e2feee165dceb09.js":"","https://static.zohocdn.com/iam/v2/components/js/security.16b8cc363d2caa0dec750359109b1e0e.js":"","https://static.zohocdn.com/iam/accounts/js/cpsignup-new.min.8d7016a29382d4e6da624b42d23923fb.js":""};		
+var newPhoneData = '';
+function loadTPfileinRequire(tpfiles){
+	requirejs.config({
+		paths:{
+			security:[tpfiles[4].split(".js")[0]],
+			jquery:[tpfiles[0].split(".js")[0]],
+			'jquery.validate':[tpfiles[1].split(".js")[0]],
+			xregexp:[tpfiles[2].split(".js")[0]]
+		},
+		shim:{
+		security:{
+				exports:'ZASEC',
+				init: function() {
+		          var ZASEC$1 = window && window.ZASEC ? window.ZASEC : { version: '5.4.0' };
+		          return ZASEC$1;
+		        }
+			},
+			xregexp:{exports:'XRegExp'},
+			jquery:{exports:'jQuery'},
+			'jquery.validate': {deps:['jquery']}
+		}
+	});
+	require(['security','xregexp','jquery','jquery.validate'],function(ZASEC,XRegExp,jQuery,jqValidation){
+		window.ZASEC=ZASEC;
+		window.XRegExp=XRegExp;
+		window.$=jQuery;
+		window.jQuery=jQuery;
+		includeScript(tpfiles[3],onZAScriptLoad);
+	})
+}
+
+function zaOnLoadHandler() {
+	var cssURLs,jsURLs;
+	var tpfiles =[];
+		jsURLs = "https://static.zohocdn.com/iam/accounts/js/tplibs/jquery/jquery-3.7.1.min.2c872dbe60f4ba70fb85356113d8b35e.js,https://static.zohocdn.com/iam/accounts/js/tplibs/jquery/jquery.validate.min.24ae1ca673cbebd97e2feee165dceb09.js,https://static.zohocdn.com/iam/accounts/js/tplibs/xregexp-all.2a67efb28253461665e6cd92f41b19b0.js,https://static.zohocdn.com/iam/accounts/js/cpsignup-new.min.8d7016a29382d4e6da624b42d23923fb.js,https://static.zohocdn.com/iam/v2/components/js/security.16b8cc363d2caa0dec750359109b1e0e.js";		
+	// Include CSS
+	if(cssURLs) {
+		cssURLs = cssURLs.split(","); 
+		for(var i = 0, len = cssURLs.length; i < len; i++) {
+			var style = document.createElement("link"); 
+			if(!isCDNEnabled){
+				if(cssURLs[i].indexOf('http') != 0) { // is Relative URL ? // No I18N
+					if(cssURLs[i].indexOf("/accounts/") == -1){	// No I18N
+						cssURLs[i] = zaConstants.css_url + cssURLs[i]; // No I18n
+					}
+					else{
+						cssURLs[i] = zaConstants.accountsServer + cssURLs[i]; // No I18n
+					}
+				} 
+			}
+			style.href = cssURLs[i]; 
+			style.rel = "stylesheet"; 
+			if(resIntegrity && resIntegrity[cssURLs[i]]) {
+				style.integrity = resIntegrity[cssURLs[i]];
+				style.crossOrigin = "anonymous";	// No I18N
+			}
+			docHead.appendChild(style); 
+		}
+	}
+	// Synchronously Include Scripts
+	if(jsURLs) {
+		jsURLs = jsURLs.split(","); 
+		var scriptIdx = 0; 
+		(function _jsOnLoad() {
+			if (scriptIdx == jsURLs.length) { // Last script, all scripts were loaded. So, call the users handler.  
+				if(window.requireEnabled){
+					loadTPfileinRequire(tpfiles);
+				}else{
+					onZAScriptLoad();
+				}
+			} else {
+				var jsURL = jsURLs[scriptIdx++]; 
+				if((jsURL.indexOf("jquery-3.7.1.min") != -1 && window.jQuery)||(jsURL.indexOf("common.") != -1 && window.I18N)||(jsURL.indexOf("signin.min") != -1 && window.I18N)) { // Don't include jQuery, If it is already included in the page.
+					tpfiles.push(jsURL);
+					 _jsOnLoad(); 
+				} else { 
+					if(!isCDNEnabled){
+						if(jsURL.indexOf('http') != 0) { // is Relative URL ? 
+							if(jsURL.indexOf("/accounts/") == -1 && jsURL.indexOf("/v2/components/") == -1){
+								jsURL = zaConstants.js_url + jsURL; 
+							}
+							else{
+								jsURL = zaConstants.accountsServer + jsURL;
+							}
+						}
+					}
+					if(window.requireEnabled && (jsURL.indexOf("jquery-3.7.1.min") != -1  || jsURL.indexOf("jquery.validate") != -1 || jsURL.indexOf("xregexp") != -1 || jsURL.indexOf("signup-new.min") != -1 || jsURL.indexOf("security") != -1)){
+						tpfiles.push(jsURL);
+						_jsOnLoad();
+					}else{
+						includeScript(jsURL, _jsOnLoad);
+					}
+				}
+			}
+		})();
+	}
+};
+
+function includeScript(url, callback) {
+	var script = document.createElement("script"); 
+	script.src = url; 
+	if(resIntegrity && resIntegrity[url]) {
+		script.integrity = resIntegrity[url];
+		script.crossOrigin = "anonymous"; //No I18N
+	}
+	if (callback) { 
+		script.onload = script.onreadystatechange = function() { 
+			if (!this.readyState || this.readyState === "loaded" || this.readyState === "complete") {
+				callback(); 
+				script.onload = script.onreadystatechange = null; // To avoid calling repeatedly in IE 
+			}
+		};
+	}
+	docHead.appendChild(script); 
+};
+
+if(document.readyState == "complete") { // Call the handler if DOM already loaded.
+	zaOnLoadHandler(); 
+} else { 
+	// Should not use `window.onload` as it might be overridden by service team  
+	if (window.addEventListener) {
+	  window.addEventListener('load', zaOnLoadHandler, false);  
+	} else if (window.attachEvent)  { 
+	  window.attachEvent('onload', zaOnLoadHandler); 
+	}
+}
+function onZAScriptLoad() {
+	$.fn.focus=function(){ 
+		if(this.length){
+			$(this)[0].focus();
+		}
+		return $(this);
+	}
+	Validator.addDefaultMethods();
+	Util.redirectToHTTPS();
+	Util.paramConfigure({ 
+			"_sh" : "header,footer"
+	});
+	ZAConstants.load(zaConstants);
+	I18N.load({"IAM.NEW.SIGNUP.USING.ZOHO":"Sign up using email address or mobile number","IAM.ERROR.SIGNUP.NOT.ALLOWED":"Account creation is disabled","IAM.NEW.SIGNUP.LASTNAME.VERIFY.SPL.CHARACTER":"Last name cannot have special characters","IAM.ERROR.LASTNAME.MANDATORY":"Please enter the last name","IAM.ERROR.PASS.LEN":"Password cannot be less than 8 characters","IAM.ERROR.USERNAME.STARTSWITH":"User Name should start with an alpha numeric (a-z ,0-9) character","IAM.NEW.SIGNUP.EMAIL.VERIFY.DESC":"Enter the one-time password sent to your email address.","IAM.ERROR.VALID.VALUE":"Please Enter a valid value","IAM.SIGNIN.IDP.GAPPS.DOMAIN":"Enter your Google Apps domain","IAM.MOBILE.COUNTRYCODE.EXAMPLE":"???IAM.MOBILE.COUNTRYCODE.EXAMPLE???","IAM.NEW.SIGNUP.DOMAIN.CHANGE.FINAL.DESC":"Your data will be stored in the <span class=\"selectedDomain\"><\/span> data center based on the country selected.","IAM.ERROR.GENERAL":"An error occurred. Please try again later.","IAM.NEW.SIGNIN.OTP.SENT":"OTP sent to <span>{0}<\/span>","IAM.ERROR.INVALID_PHONE":"Please enter valid phone / mobile number","IAM.ERROR.USERNAME.ATLEAST.ONEALPHA":"User Name should contain atleast one alphabet","IAM.EMAIL.DOMAIN.SUGGESTION.FULL":"Invalid email address, did you mean {0}?","IAM.ERROR.PASSWORD.MAXLEN":"Password cannot be more than 250 characters","IAM.ERROR.USERNAME.CONSECUTIVE.DOTS":"User Name should not contain consecutive dots(.) or underscores(_)","IAM.EMAIL.ADDRESS.OR.MOBILE":"Email / Phone","IAM.NEW.SIGNIN.RESEND.OTP":"Resend OTP","IAM.REGISTER.ANTISPAM.ERROR":"We are unable to create your account right now. Please contact <b>support-as@zohocorp.com<\/b>","IAM.NEW.SIGNUP.FIRSTNAME.VALID":"Please enter a valid first name","IAM.CONFIRMATION.CONTINUE_ACCOUNT":"Access Your Account","IAM.ERROR.CODE.U131":"Email address cannot contain the \u2018+\u2019 character.","IAM.SIGNUP.CONFIRMATION.VERIFY.EMAIL":"A verification email has been sent to <b style=\"word-break:break-all;\">$EMAIL<\/b>. Please click the link given in that email to confirm your registration.","IAM.PHONE.ENTER.VALID.MOBILE_NUMBER":"Please enter a valid mobile number","IAM.US.STATE.SELECT":"Select State","IAM.SIGNIN.SUCCESS.OTP.SENT":"OTP sent successfully","IAM.ERROR.EMAIL.INVALID":"Please enter a valid email address","IAM.SIGNUP.CONFIRMATION.RIGHT.TO.DEACTIVATE.NEW":"NOTE: <br/><li>If your registration is not confirmed, Glamour Galleria reserves the right to deactivate or close it later without notice.<\/li>","IAM.NEW.SIGNUP.LASTNAME.VALID":"Please enter a valid last name","IAM.PASSWORD.HIDE":"Hide","IAM.ERROR.IDP.VALID.DOMAIN":"Enter valid Google Apps domain","IAM.CLIENT.SIGNUP.ADMIN.DOMAIN":"Your request to access the <b>$DOMAIN<\/b> customer portal has been registered.<br>After the portal administrator approves your request, you will be able to access.","IAM.NEW.SIGNUP.MOBILE.VERIFY.DESC":"Enter the one-time password sent to your mobile number.","IAM.ERROR.ENTER.LOGINPASS":"Please enter the password","IAM.SIGNUP.ERROR.DIALING.CODE":"Please select the country code","IAM.REGISTER.ACCOUNT.CONFIRMATION":"Account Confirmation","IAM.CLIENT.SIGNUP.ADMIN.CONTACT.MAIL":"To check the approval status, you can contact the administrator at <b>$DOMAINMAIL<\/b>.","IAM.NEW.SIGNUP.DOMAIN.CHANGE.DESC":"Your data will be stored in the <span class=\"selectedDomain\"><\/span> data center, as you are in <span class=\"selectedCountry\"><\/span>.","IAM.ERROR.USERNAME.INCORRECT.ATLEAST.ONEALPHA":"Username should contain atleast one alphabet","IAM.ERROR.WORD.IMAGE":"Please enter the CAPTCHA shown","IAM.TFA.RESEND.OTP.COUNTDOWN":"Resend in <span>60<\/span>s","IAM.MOBILE.OTP.MAX.COUNT.REACHED":"No more resend attempts left.","IAM.ERROR.TERMS.POLICY":"Please read and accept the Terms of Service and Privacy Policy","IAM.AC.PASSWORD.MATCHED.SIGNIN.REDIRECT":"Continue to sign in","IAM.CLIENT.SIGNUP.ADMIN.TITLE":"Administrator approval pending","IAM.SIGNIN.ERROR.CAPTCHA.INVALID":"Incorrect CAPTCHA. Please try again.","IAM.SIGNUP.CONFIRMATION.EMAIL.TIP":"<li style=\"word-break:break-all;\"> Add&nbsp; Zoho&#x20;Team&lt;noreply&#x40;zohoaccounts.com&gt; to your white list or zohoaccounts.com&gt; to your list of allowed domains <\/li><li> Check the spam folder if you didn&#39;t receive the account confirmation mail.<\/li>","IAM.NEW.SIGNUP.FIRSTNAME.VERIFY.SPL.CHARACTER":"First name cannot have special characters","IAM.SIGNUP.AGREE.TERMS.OF.SERVICE":"I agree to the <a href=\"{0}\" target=\"_blank\" rel=\"noreferrer\">Terms of service<\/a> and <a href=\"{1}\" target=\"_blank\" rel=\"noreferrer\">Privacy policies<\/a> of Glamour Galleria Corporation","IAM.SIGNIN.OTP.THRESHOLD.MFA.LIMIT":"<p style=\"color:#626262;display:inline-block;margin:0px;\">You have {0} attempt(s) left.<\/p>","IAM.ERROR.USERNAME.ONLY.ALPANUMERIC":"Only letters, numbers, underscores (_), dots (.) are allowed in user name.","IAM.NEW.SIGNUP.TITLE":"Create your Glamour Galleria account","IAM.NEW.SIGNIN.OTP.SENT.RESEND":"OTP sent again to {0}","IAM.SIGNIN.OTP.MAX.COUNT.MFA.LIMIT.ENDS":"<p style=\"color:#626262;display:inline-block;margin:0px;\">No more resend attempts left.<\/p>","IAM.SIGNUP.MODE.EMAIL":"Sign up using email address","IAM.ERROR.USERNAME.MANDATORY":"Please enter the user name","IAM.INVALID.FIRSTNAME":"Invalid first name","IAM.DOMAIN.CHECK_MESSAGE":"Did you mean {0}?","IAM.SIGNUP.MODE.MOBILE.NUMBER":"Sign up using mobile number","IAM.ERROR.INVALID_IMAGE_TEXT":"Image Text not entered correctly","IAM.ERROR.USERNAME.NOOF.CHARS":"User Name should be more than 6 and less than 30 characters","IAM.PASSWORD":"Password","IAM.ERROR.VALID.OTP":"Please enter a valid OTP","IAM.BUTTON.CONTINUE.SIGNIN":"Continue Sign In","IAM.ERROR.EMAIL.OR.MOBILE.INVALID":"Please enter valid email address or mobile number","IAM.NEW.SIGNUP.COUNTRY.CHANGE.DESC":"We will store your data in a data center based on the country you select.","IAM.VERIFY.CODE":"Enter OTP","IAM.SIGNUP.ACCOUNT.PROGRESS":"Creating Account ...","IAM.MOBILE.COUNTRYCODE.NOTE":"???IAM.MOBILE.COUNTRYCODE.NOTE???","IAM.PASSWORD.SHOW":"Show","IAM.ERROR.USERNAME.ENDSWITH":"User name should end with an alpha numeric (a-z ,0-9) character","IAM.MOBILE.OTP.REMAINING.COUNT":"You have {0} attempts left.","IAM.ERROR.WRONG.CONFIRMPASS":"Wrong password confirmation"});
+	window.NewsLetterSubscriptionMode = JSON.parse('{"DOUBLE_OPT_IN":3,"SHOW_FIELD_WITHOUT_CHECKED":2,"HIDE_FIELD_WITH_CHECKED":0,"SHOW_FIELD_WITH_CHECKED":1}');
+			window.PasswordPolicyInfo = JSON.parse('[{"minLength":8,"ErrorCode":"PP101","message":"Password cannot be less than 8 characters"},{"ignoreLength":12,"containsLoginName":true,"ErrorCode":"PP104","message":"Password should not contain login name or emailId"},{"ErrorCode":"PP106","message":"Password cannot be more than 250 characters","maxLength":250},{"ignoreLength":12,"ErrorCode":"PP107","message":"Password should contain atleast 1 special character","minSplChar":1},{"ignoreLength":12,"minNUmChar":1,"ErrorCode":"PP108","message":"Password should contain atleast 1 numeric character"},{"ignoreLength":12,"isEnabled":true,"ErrorCode":"PP109","message":"Password should contain both upper and lower case letters."},{"ignoreLength":12,"isEnabled":true,"ErrorCode":"PP113","message":"Password should not contain continuous characters"},{"ignoreLength":12,"passwordHistory":1,"ErrorCode":"PP109","message":"Password should not be same as your last 1 password(s)"}]');
+		Util.includeJSON2();
+		var zaSignUpOptions = $.fn.zaSignUp.defaults;  
+		$.extend(true, zaSignUpOptions, { 
+			x_signup : {"username_required":false,"service_name":"ZohoSites","paramsNames":["servicename","serviceurl","appname","service_language","mode","load_country","use_ott","temp_redirect","darkmode","stop_ufields","orgtype","hide_flag"],"params":{"mode":"21","serviceurl":"https://glamourgallery-demo.zohoecommerce.com","servicename":"ZohoSites","load_country":"false","service_language":"en"},"minpwdlen":8,"csrfParamName":"iamcsrcoo","newsletter_required":true,"service_url":"https://glamourgallery-demo.zohoecommerce.com","client_portal":true,"password_required":true,"rmobile_required":false,"email_required":true,"mobile_required":false,"captcha_required":false} 
+		}); 
+		var appserviceurl = zaSignUpOptions.x_signup.service_url;
+		appserviceurl = appserviceurl.split("?")[0];
+		var urlpathArray = appserviceurl.split( '/' );
+		var urlProtocol = urlpathArray[0];
+		var urlHost = urlpathArray[2];
+		var appURL = urlProtocol + '//'+urlHost;
+		CrossServiceRequest.appURLs[zaSignUpOptions.x_signup.service_name] = appURL;
+		if(window.onSignupReady) {
+			window.onSignupReady(); 
+	 	}
+	 	window.onbeforeunload = unloadpopup; 
+		   function unloadpopup(){ 
+	 	      if(formvalidated){ 
+		         return "Signup in progress"; 
+	 	      }
+		   }
+}

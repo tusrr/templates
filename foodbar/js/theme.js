@@ -33,7 +33,23 @@
 	$( ".toggle_icon" ).on('click', function() {
 		$( 'body' ).toggleClass( "open" );
 	});
-	
+    var burgerMenu = function() {
+        $('.js-colorlib-nav-toggle').on('click', function(event) {
+            event.preventDefault();
+            var $this = $(this);
+            if ($('body').hasClass('menu-show')) {
+                $('body').removeClass('menu-show');
+                $('.js-colorlib-nav-toggle').removeClass('show');  // Adjusted selector
+            } else {
+                $('body').addClass('menu-show');
+                setTimeout(function(){
+                    $('.js-colorlib-nav-toggle').addClass('show');
+                }, 900);
+            }
+        });
+    };
+    burgerMenu();
+    
 	
 //	$(window).on("load",function(){
 //        $(".side_menu .list.menu_right").niceScroll({

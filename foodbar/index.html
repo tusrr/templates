@@ -21,12 +21,16 @@
 	<!-- main css -->
 	<link rel="stylesheet" href="css/style.css">
 	<link rel="stylesheet" href="css/responsive.css">
+	
 </head>
 
 <body>
+	<!-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> -->
 
-	<!--================Offcanvus Menu Area =================-->
-	<div class="side_menu">
+	<!-- ================Offcanvus Menu Area ================= -->
+	<!-- <div class="side_menu">
+		<a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+
 		<a class="logo" href="#">
 			<img src="img/logo.png" alt="">
 		</a>
@@ -91,10 +95,73 @@
 				</a>
 			</li>
 		</ul>
-	</div>
+	</div> -->
 	<!--================End Offcanvus Menu Area =================-->
 
 	<!--================Header Menu Area =================-->
+	<div class="side_menu">
+        <button class="close-btn">&times;</button> <!-- Close Button -->
+
+        <!-- Toggle Button (Menu button) -->
+        <a href="#" class="js-colorlib-nav-toggle colorlib-nav-toggle"><i></i></a>
+
+        <!-- Logo -->
+        <a class="logo" href="#">
+            <img src="img/logo.png" alt="Logo">
+        </a>
+
+        <!-- Menu Items -->
+        <ul class="list menu_right">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about-us.html">About</a></li>
+            <li><a href="menu.html">Menu</a></li>
+            <li><a href="book-table.html">Book a table</a></li>
+            <li>
+                <a href="#">Pages</a>
+                <ul class="list">
+                    <li><a href="gallery.html">Gallery</a></li>
+                    <li><a href="elements.html">Elements</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">Blog</a>
+                <ul class="list">
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="single-blog.html">Blog Details</a></li>
+                </ul>
+            </li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- jQuery Script -->
+    <script>
+        $(document).ready(function(){
+            // Open menu when clicking the toggle button
+            $(".js-colorlib-nav-toggle").click(function(e){
+                e.preventDefault(); // Prevent the default anchor behavior
+                $(".side_menu").addClass("open"); // Add 'open' class to slide in the menu
+            });
+
+            // Close menu when clicking the close button
+            $(".close-btn").click(function(){
+                $(".side_menu").removeClass("open"); // Remove the 'open' class to slide out the menu
+            });
+
+            // Close menu when clicking outside the menu
+            $(document).click(function(event) {
+                if (!$(event.target).closest(".side_menu, .js-colorlib-nav-toggle").length) {
+                    $(".side_menu").removeClass("open"); // Close the menu if clicked outside
+                }
+            });
+        });
+    </script>
+	
+	
+
+
+
+	
 	<header class="header_area home_menu">
 		<div class="main_menu">
 			<nav class="navbar navbar-expand-lg navbar-light">

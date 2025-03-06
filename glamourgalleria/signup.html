@@ -1,0 +1,449 @@
+<!DOCTYPE html><html lang="en-US" dir="ltr" data-nojs><head><title>Glamour Galleria</title><meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no"><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><meta name="generator" content="Zoho Commerce, https://www.zoho.com/commerce"/><link rel="icon" href="/favicon.png"/><link href="https://zfcommerce.nimbuspop.com/IDC/css/portal-signin.css" rel="stylesheet"><link href="/zs-customcss.css" rel="stylesheet"><script src="https://zfcommerce.nimbuspop.com/IDC/js/portal_signup.js" defer></script><script src="https://zfcommerce.nimbuspop.com/IDC/js/browser_compatibility.js" defer></script><script src="/accounts/p/10082778544/register/script?mode=21&load_country=false&servicename=ZohoSites&serviceurl=https://glamourgallery-demo.zohoecommerce.com&service_language=en" defer></script><script type="application/javascript">window.zs_view="signup"</script><script>
+    function selectcolorVariantImage(label, attribute) {
+        selectcolor(label, attribute);
+        setTimeout(()=>{
+            var selectedVariant = label.querySelector('input[type="radio"]:checked');
+            if (selectedVariant) {
+                let select = label.closest('.theme-prod-box').querySelector('[data-zs-variants]');
+                var variantId = selectedVariant.value;
+                var productImage = label.closest('.theme-product-box-content').querySelector('.theme-product-image-area img');
+                var originalSRC = label.closest('.theme-product-box-content').querySelector('.theme-product-image-area .theme-org-img').getAttribute('data-src');
+                var foundMatchingImage = false; 
+
+                for (const option of select.options) {
+                    const zsAttributes = option.getAttribute('data-zs-attributes');
+                    if (zsAttributes && zsAttributes.includes(variantId) && !option.getAttribute('data-zs-images').includes('-1')) {
+                        const imageUrl = option.getAttribute('data-zs-img-url');
+                        productImage.src = imageUrl;
+                        productImage.setAttribute('data-src', imageUrl);
+                        foundMatchingImage = true; 
+                        break; 
+                    }
+                }
+                if (!foundMatchingImage) {
+                    productImage.src = originalSRC.includes('no-preview-image')?originalSRC:originalSRC+'/400x400';
+                    productImage.setAttribute('data-src', originalSRC);
+                }
+            }
+        },250);
+    }
+</script><script>
+    function mobileheader(){
+        if (document.documentElement.clientWidth < 992) {
+            if(mobileHeaderStyle == '03' || mobileHeaderStyle == '04'){
+                var mobileHeaderSearchInput = document.querySelector('[data-zs-mobile-header-search] [data-zs-search-input]'),
+                    mobileHeaderSearchIcon = document.querySelector('[data-zs-mobile-header-search-icon]'),
+                    mobileHeaderSearchBackButton = document.querySelector('[data-zs-mobile-header-search-back]'),
+                    mobileHeaderSearchClearButton = document.querySelector('[data-zs-mobile-header-search-clear]'),
+                    mobileHeaderClearSearchInput = '';
+                if(window.location.href.indexOf("search-products") > -1){
+                    var mobileHeaderSearch = document.querySelector('[data-zs-mobile-header-search]');
+                    if(mobileHeaderSearch){
+                        mobileHeaderSearch.classList.add('theme-mobile-header-search-open');
+                    }
+                    if(mobileHeaderSearchBackButton){
+                        mobileHeaderSearchBackButton.addEventListener('click',function(){
+                            history.go(-1);
+                        });
+                    }
+                }
+                if(mobileHeaderSearchInput){
+                    mobileHeaderSearchInput.addEventListener('keyup',function(){
+                        if (this.value) {
+                            this.closest('[data-zs-mobile-header-search]').querySelector('[data-zs-mobile-header-search-clear]').style.display = 'block';
+                        } else {
+                            this.closest('[data-zs-mobile-header-search]').querySelector('[data-zs-mobile-header-search-clear]').style.display = 'none';
+                        }
+                    });
+                }
+                if(mobileHeaderSearchIcon){
+                    mobileHeaderSearchIcon.addEventListener('click',function(){
+                        this.closest('[data-zs-mobile-header-search]').classList.add('theme-mobile-header-search-open');
+                        this.closest('[data-zs-mobile-header-search]').querySelector('[data-zs-search-input]').focus();
+                    });
+                }
+                if(mobileHeaderSearchBackButton){
+                    mobileHeaderSearchBackButton.addEventListener('click',function(){
+                        this.closest('[data-zs-mobile-header-search]').classList.remove('theme-mobile-header-search-open');
+                    });
+                }
+                if(mobileHeaderSearchClearButton){
+                    mobileHeaderSearchClearButton.addEventListener('click',function(){
+                        mobileHeaderClearSearchInput = this.closest('[data-zs-mobile-header-search]').querySelector('[data-zs-search-input]');
+                        mobileHeaderClearSearchInput.value = ""
+                        mobileHeaderClearSearchInput.focus();
+                        this.style.display = 'none';
+                    });
+                }
+                var portalUserName = document.querySelector('[data-portal-profile]'),
+                    portalLogoutParent = document.querySelector('[data-portal-logout]');
+                if(portalUserName && portalLogoutParent && portalLogoutParent.parentNode){
+                    portalUserName.appendChild(portalLogoutParent.parentNode);
+                }
+                drawerPlugin();
+            }else if(mobileHeaderStyle == '02'){
+                var mobileHeaderOpenSearchInput = document.querySelector('[data-zs-mobile-openstyle-searchbox] [data-zs-search-input]');
+                if(mobileHeaderOpenSearchInput){
+                    mobileHeaderOpenSearchInput.blur();
+                }
+                var menuclose = document.querySelector('[data-zp-theme-burger-icon]');
+                if(menuclose && menuclose.classList.contains('theme-close-icon')){
+                    menuclose.click();
+                }
+                var standalone = window.navigator.standalone || (window.matchMedia('(display-mode: standalone)').matches),
+                    userAgent = window.navigator.userAgent.toLowerCase(),
+                    safari = /safari/.test(userAgent),
+                    ios = /iphone|ipod|ipad/.test(userAgent);
+                if (ios && !standalone && !safari) {    //iOS webview check
+                    var ishome = window.location.pathname === "/" ? true : false;
+                    var mobileHeaderResponsiveGoBack = document.querySelector('[data-zs-mobile-header-responsive-goback]'),
+                        mobileHeaderBranding = document.querySelector('[data-zs-branding]'),
+                        mobileHeaderResponsiveMenuArea = document.querySelector('[data-zs-responsive-menu-area]');
+                    if(ishome){
+                        if(mobileHeaderResponsiveGoBack){
+                            mobileHeaderResponsiveGoBack.style.display = 'none';
+                        }
+                        if(mobileHeaderBranding){
+                            mobileHeaderBranding.style.display = 'flex';
+                        }
+                        if(mobileHeaderResponsiveMenuArea){
+                            mobileHeaderResponsiveMenuArea.style.flex = '';
+                        }
+                    }else{
+                        if(mobileHeaderResponsiveGoBack){
+                            mobileHeaderResponsiveGoBack.style.display = 'flex';
+                        }
+                        if(mobileHeaderBranding){
+                            mobileHeaderBranding.style.display = 'none';
+                        }
+                        if(mobileHeaderResponsiveMenuArea){
+                            mobileHeaderResponsiveMenuArea.style.flex = '1 1 auto';
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    function drawerPlugin(){
+        var drawerPlugin = {};
+        drawerPlugin.init = function() {
+            drawerPlugin.drawerWrapper = document.querySelector("[data-zs-drawer]");
+            drawerPlugin.drawerOpenButton = document.querySelectorAll("[data-zs-drawer-open-button]");
+            drawerPlugin.drawerCloseButton = document.querySelector("[data-zs-drawer-close-button]");
+
+            if(drawerPlugin.drawerOpenButton){
+                drawerPlugin.drawerOpenButton.forEach(function(drawerOpenButton){
+                    drawerOpenButton.addEventListener("click", function(){
+                        drawerPlugin.open(this.getAttribute('data-zs-drawer-open-button'));
+                    });
+                });
+            }
+            if(drawerPlugin.drawerCloseButton){
+                drawerPlugin.drawerCloseButton.addEventListener("click", function(){
+                    drawerPlugin.close();
+                });
+            }
+        }
+        drawerPlugin.open = function(targetContentSelector){
+            var targetContent = document.querySelector("[data-zs-drawer-content="+targetContentSelector+"]");
+            if(targetContent && drawerPlugin.drawerWrapper){
+                drawerPlugin.drawerWrapper.classList.add('active');
+                targetContent.classList.add('active');
+            }
+            document.getElementsByTagName("body")[0].classList.add('theme-body-overflowhidden');
+        }
+        drawerPlugin.close = function(){
+            var activeDrawerContent = document.querySelector("[data-zs-drawer-content].active");
+            if(activeDrawerContent && drawerPlugin.drawerWrapper){
+                drawerPlugin.drawerWrapper.classList.remove('active');
+                activeDrawerContent.classList.remove('active');
+            }
+            document.getElementsByTagName("body")[0].classList.remove('theme-body-overflowhidden');
+        }
+        drawerPlugin.init();
+    }
+    document.addEventListener('DOMContentLoaded',drawerPlugin);
+    document.addEventListener('DOMContentLoaded',mobileheader);
+
+</script><script>
+    window.addEventListener('resize', function(event) {
+        responsivechanges();
+        bannerLiScroll = document.querySelectorAll('[data-element-type="heroslide"]');
+        bannerLiScrollLength = bannerLiScroll.length;
+        bannerBaseHeaderScrl = document.querySelectorAll('[data-banner-base-header="theme-banner-base-header"]');
+        bannerBaseHeaderScrlLength = bannerBaseHeaderScrl.length;
+        headerContainer = document.querySelectorAll('[data-headercontainer="zptheme-data-headercontainer"]')[0];
+        if(!headerContainer){
+            return;
+        }
+        var hasHeaderSix = headerContainer.classList.contains('zpheader-style-06');
+        if (topBar) {
+            var darkTopbar = topBar.getAttribute('data-dark-part-applied').trim();
+        }
+        if(hasHeaderSix == false){
+            for (bhscrl = 0; bhscrl < bannerBaseHeaderScrlLength; bhscrl++) {
+                var darkHeader = bannerBaseHeaderScrl[bhscrl].getAttribute('data-dark-part-applied').trim();
+            }
+        }
+        headerContainerChildren = headerContainer.children;
+        if(document.documentElement.clientWidth < 992){
+            headerContainer.style.top = '0px';
+            if(topBar){
+                topBar.style.opacity = '1';
+            }
+        }
+        for (bnrScrl = 0; bnrScrl < bannerLiScrollLength; bnrScrl++) {
+            var bannerDark = bannerLiScroll[bnrScrl].classList.contains('zpdark-section');
+            var hasHeaderSix = headerContainer.classList.contains('zpheader-style-06');
+            if (headerContainer.className.indexOf('theme-header-fixed') > 0 && bannerLiScroll[bnrScrl].className.indexOf('zpdark-section') > -1 && bannerLiScroll[bnrScrl].className.indexOf('curslide') > -1 && hasHeaderSix == false && document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1028) {
+                for (bhscrl = 0; bhscrl < bannerBaseHeaderScrlLength; bhscrl++) {
+                    addClass(bannerBaseHeaderScrl[bhscrl], 'zpdark-header-portion');
+                }
+                if (topBar) {
+                    addClass(topBar, 'zpdark-header-portion');
+                }
+            }
+            if (headerContainer.className.indexOf('theme-header-fixed') > 0 && hasHeaderSix == false && bannerDark == false && bannerLiScroll[bnrScrl].className.indexOf('curslide') > -1 && document.documentElement.clientWidth > 768 && document.documentElement.clientWidth < 1028) {
+                for (bhscrl = 0; bhscrl < bannerBaseHeaderScrlLength; bhscrl++) {
+                    removeClass(bannerBaseHeaderScrl[bhscrl], 'zpdark-header-portion');
+                }
+                if (topBar && topBar.className.indexOf('zpdark-header-portion') > -1) {
+                    removeClass(topBar, 'zpdark-header-portion');
+                }
+            }
+            if (headerContainer.className.indexOf('theme-header-fixed') > 0 && document.documentElement.clientWidth < 992) {
+                if(hasHeaderSix == false){
+                    for (bhscrl = 0; bhscrl < bannerBaseHeaderScrlLength; bhscrl++) {
+                        var darkHeader = bannerBaseHeaderScrl[bhscrl].getAttribute('data-dark-part-applied').trim();
+                        if (darkHeader == 'true') {
+                            addClass(bannerBaseHeaderScrl[bhscrl], 'zpdark-header-portion');
+                        }
+                        if (darkHeader == 'false' && bannerBaseHeaderScrl[bhscrl].className.indexOf('zpdark-header-portion') > -1) {
+                            removeClass(bannerBaseHeaderScrl[bhscrl], 'zpdark-header-portion');
+                        }
+                    }
+                }
+                if (topBar && darkTopbar == 'true') {
+                    addClass(topBar, 'zpdark-header-portion');
+                }
+                if (topBar && darkTopbar == 'false' && topBar.className.indexOf('zpdark-header-portion') > -1) {
+                    removeClass(topBar, 'zpdark-header-portion');
+                }
+            }
+        }
+
+        // CURRENCY RESIZE
+
+        var currencyListContainer = document.querySelector('[data-theme-currency-list-ul]');
+        if(currencyListContainer){
+            var currencyListClick = document.querySelector('[data-theme-currency-list-container]');
+            var currencyContainerHeight = document.querySelector('[data-theme-currency-list-container]');
+            var currencyPlaceHeight = document.querySelector('[data-theme-currency-placeholder-non-res]');
+            var curHeight = currencyListContainer.firstChild.clientHeight;
+            if(window.innerWidth > 992){
+                if(curHeight != 0){
+                    currencyPlaceHeight.style.height = curHeight+'px';
+                    currencyContainerHeight.style.height = curHeight+'px';
+                }
+            }
+            else{
+                currencyPlaceHeight.style.height = 'auto';
+                currencyContainerHeight.style.height = 'auto';
+            }
+            if(window.innerWidth < 992 ){
+                currencyListContainer.addEventListener('click',function(){
+                    currencyListClick.removeEventListener('click',openCurrency);
+                });
+            }
+            else{
+                currencyListContainer.addEventListener('click',function(){
+                    currencyListClick.removeEventListener('click',openCurrency);
+                    currencyListClick.addEventListener('click',openCurrency);
+                });
+            }
+        }
+
+        // CURRENCY RESIZE END
+
+        // EVENT DISPATCH FOR RESIZING
+
+        var event = new Event('zs:header:resize', {});
+        document.dispatchEvent(event);
+        drawerPlugin();
+        fullBannerHeaderColor();
+        hideLang();
+        mobileheader();
+    });
+
+
+    
+</script><script>
+    document.addEventListener("DOMContentLoaded", showBreadCrumb);
+    function showBreadCrumb(){
+        let breadcrumb = document.querySelector(".theme-product-page-breadcrumb");
+        if((breadcrumb && window.zs_view === "category" || window.zs_view === "product") && breadcrumb.querySelector('.theme-porduct-bredcrumb').children.length>0){
+            breadcrumb.style.display = "flex";
+        } else{
+            breadcrumb.style.display = "none";
+        }
+    }
+</script><script>
+    function customSortBySelect(value,label) {
+        let select = document.querySelector('[data-sort-by-products]');
+        let customSelect = document.querySelector('[data-custom-select-value]');
+        let customSelectContainer = document.querySelector('[data-custom-select-option-container]');
+        select.value = value;
+        select.dispatchEvent(new Event('change'));
+        customSelect.innerText = label;
+        setTimeout(()=>{
+            customSelectContainer.classList.remove('theme-open-custom-sort');
+        },250)
+    }
+    function toggelCustomSort(element){
+        let customSelectContainer = element.querySelector('[data-custom-select-option-container]');
+        let customOpenClose = element.querySelector('.theme-sort-open-close');
+        if(customSelectContainer){
+            customSelectContainer.classList.toggle('theme-open-custom-sort');
+            customOpenClose.classList.toggle('theme-toggle-open');
+        }
+    }
+</script><script>
+    function closeCurrencyMobi(){
+        var currencyList = document.querySelectorAll('[data-theme-currency-list]');
+        var currencyListContainer = document.querySelector('[data-theme-currency-list-ul]');
+        var currencyHideMobile = document.querySelector('[data-theme-currency-hide-mobile]');
+        var currencyMobileOpenTop = document.querySelector('[data-theme-currency-open-top]');
+        var menuId = currencyListContainer.getAttribute('data-theme-currency-list-ul');
+        var menuClose = document.querySelector('[data-zp-burger-clickable-area="'+menuId+'"]');
+        var resMenu = document.querySelector('[data-non-res-menu="zptheme-menu-non-res"]');
+        for(cur=0;cur<currencyList.length;cur++){
+            currencyList[cur].style.display = 'none';
+            currencyListContainer.firstChild.style.display = "flex";
+            removeClass(currencyListContainer,'theme-currency-open');
+        }
+        if(mobileHeaderStyle != '03' && mobileHeaderStyle != '04'){
+            menuClose.click();
+        }
+        currencyHideMobile.style.display = "none";
+        currencyMobileOpenTop.style.display = "none";
+        removeClass(resMenu,'theme-change-zindex');
+    }
+    
+    function currentCurr(currentList){
+        var currencyListContainer = document.querySelector('[data-theme-currency-list-ul]');
+        var currenyOpen = currencyListContainer.classList.contains('theme-currency-open');
+        var currencyList = document.querySelectorAll('[data-theme-currency-list]');
+        var menuId = currencyListContainer.getAttribute('data-theme-currency-list-ul');
+        var currencyMobileOpenTop = document.querySelector('[data-theme-currency-open-top]');
+        var menuClose = document.querySelector('[data-zp-burger-clickable-area="'+menuId+'"]');
+        var resMenu = document.querySelector('[data-non-res-menu="zptheme-menu-non-res"]');
+        if(currentList != currencyListContainer.childNodes[0]){
+            currencyListContainer.insertBefore(currentList,currencyListContainer.childNodes[0]);
+            multi_currency.change(currentList.innerText);
+        }
+        if(currenyOpen == true && (mobileHeaderStyle != '03' && mobileHeaderStyle != '04')){
+            menuClose.click();
+        }
+        currencyMobileOpenTop.style.display = "none";
+        if(window.innerWidth <= 992){
+            for(cur=0;cur<currencyList.length;cur++){
+                currencyList[cur].style.display = 'none';
+                currencyListContainer.firstChild.style.display = "flex";
+                removeClass(currencyListContainer,'theme-currency-open');
+            }
+            if(resMenu){
+                removeClass(resMenu,'theme-change-zindex');
+            }
+        }
+    }
+</script><script>
+    function ratingsHandler(){
+        setTimeout(()=>{
+            let boxes = document.querySelectorAll('.theme-product-box-content');
+            if(boxes){
+                boxes.forEach((box) => {
+                    if(box.querySelector('.zpcomments-reviews-ratings').children.length>0) {
+                        let ratings = Number(box.querySelector('.zpcomment-rating-vote-value').innerText);
+                        box.querySelector('.theme-rating').style.display='flex';
+                    }
+                })
+            }
+        },1000)
+    }
+    
+    document.addEventListener('DOMContentLoaded',ratingsHandler);
+    document.addEventListener('zs-event-get-products-list-success',ratingsHandler);
+</script></head><body><div class="theme-header " data-portal-header><span class="theme-responsive-goback"><a href="javascript:;" onclick="history.go(-1);"><svg width="24px" height="24px" viewBox="0 0 24 24"><path fillrule="evenodd" d="M20.25 11.25H5.555l6.977-6.976a.748.748 0 000-1.056.749.749 0 00-1.056 0L3.262 11.43A.745.745 0 003 12a.745.745 0 00.262.57l8.214 8.212a.75.75 0 001.056 0 .748.748 0 000-1.056L5.555 12.75H20.25a.75.75 0 000-1.5"></path></svg></a></span><div data-zs-branding class="theme-branding-info " data-theme-branding-info="zptheme-branding-info"><div data-zs-logo-container class="theme-logo-parent theme-disable-logo-mobile"><a href="/"><img data-zs-logo src="/template/b31014efbfbf4b9cbc4d595af33f0e57/images/logo.png" alt="Glamour Galleria" style="height:auto;width:auto;"/></a></div>
+<div class="theme-site-name-caption "><div data-zs-sitename class="theme-site-name "> Glamour Galleria </div>
+</div></div></div><div class="theme-portal-form-container"><h2 class="signuptitle theme-portal-heading">Become a member</h2><form class="user-signup-form-container form" action="/accounts/register.ac" method="post" name="signupform"><ul class="signupcontainer user-signup-form-fields-container"><div class="za-mobile-container" style="display:none;"><li class="user-signup-form-field-wrapper za-country_code-container"><label class="user-signup-field-mandatory">Country Code</label><div class="za-country_code-container"><select name="country_code" id="country_code"></select></div>
+</li><li class="user-signup-form-field-wrapper"><label class="user-signup-field-mandatory">Mobile</label><div class="form-field-and-message"><input type="text" class="field-value-change" name="mobile"></div>
+</li></div><div class="za-emailormobile-container" style="display:none;"><li class="user-signup-form-field-wrapper za-country_code-container"><label class="user-signup-field-mandatory">Country Code</label><div class="za-country_code-container"><select name="country_code"></select></div>
+</li><li class="user-signup-form-field-wrapper"><label class="user-signup-field-mandatory">Email or mobile</label><div class="form-field-and-message"><input type="text" class="field-value-change" name="emailormobile"></div>
+</li></div><div class="za-email-container"><li class="user-signup-form-field-wrapper"><label class="user-signup-field-mandatory">Email</label><div class="form-field-and-message"><input type="text" class="field-value-change" name="email"></div>
+</li></div><li class="user-signup-form-field-wrapper za-password-container"><label class="user-signup-field-mandatory">Password</label><div class="form-field-and-message"><input type="password" name="password" value=""></div>
+</li><li class="user-signup-form-field-wrapper za-firstname-container"><label class="user-signup-field-mandatory">First Name</label><div class="form-field-and-message"><input type="text" id="firstname" name="firstname"><span class="field-error-msg">Enter first name</span></div>
+</li><li class="user-signup-form-field-wrapper za-lastname-container"><label class="user-signup-field-mandatory">Last Name</label><div class="form-field-and-message"><input type="text" id="lastname" name="lastname"><span class="field-error-msg">Enter last name</span></div>
+</li><li class="user-signup-form-field-wrapper za-phone-container"><label class="user-signup-field-mandatory">Phone</label><div class="form-field-and-message"><input type="text" name="r_address/2.phone"><span class="field-error-msg">Enter phone</span></div>
+</li><li class="user-signup-form-field-wrapper newsletter-container"><div class="form-field-and-message"><input type="checkbox" name="newsletter" value="true" id="zs_newsletter"><label for="zs_newsletter" class="newsletter-message">Subscribe to our newsletter for our latest news and updates.</label></div>
+</li><li class="za-captcha-container" id="captcha_elm" style="display:none;"><label class="user-signup-field-mandatory">Captcha</label><div class="form-field-and-message"><input type="text" name="captcha" value=""></div>
+<img class="za-captcha"></li><span id="signup_error_msg_container" style="color:rgb(235, 76, 92);display:none;margin-top:-10px;padding-bottom:15px;"></span><li class="user-signup-form-field-wrapper signup-form-submit"><button type="submit" class="signup-button">Become a member</button></li></ul><section class="signupotpcontainer" style="display:none;"><div class="verifytitle">Verify your sign-up</div>
+<div class="verifyheader">Enter one-time password</div><div class="otpmobile"><span id="mobileotp"></span><span class="change" onclick="gobacktosignup()">Change</span></div>
+<dl class="za-otp-container"><dd><input type="text" class="form-input" name="otp" id="otpfield" placeholder="Enter one-time password"><span onclick="resendOTP()" class="resendotp">Resend OTP</span></dd></dl><dl class="za-submitbtn-otp"><dd><input type="button" class="signupbtn" value="Verify" onclick="validateOTP()" name="otpfield"><div class="loadingImg"></div>
+</dd></dl></section></form><div class="theme-already-signin-info"> Already have an account? <a id="signinElm" href="/signin">Sign In</a></div>
+</div><script>
+document.addEventListener('DOMContentLoaded', () => {
+    const demoPopups = document.querySelectorAll('.zcs_demo_popup');
+
+    // Create the popup element
+    const popup = document.createElement('div');
+    popup.innerHTML = `
+        <span>
+            <a href="https://www.zoho.com/commerce/" target="_blank" style="text-decoration: none; color: #01ee65;">Login to Zoho Commerce</a>
+            with your online store to test the full functionality of this demo theme
+        </span>
+    `;
+    popup.style.position = 'absolute';
+    popup.style.backgroundColor = '#fff';
+    popup.style.border = '1px solid #ccc';
+    popup.style.padding = '10px';
+    popup.style.boxShadow = '0px 4px 8px rgba(0, 0, 0, 0.2)';
+    popup.style.display = 'none'; // Initially hidden
+    popup.style.zIndex = '1000';
+    popup.style.maxWidth = '300px';
+    popup.style.fontSize = '14px';
+    popup.style.borderRadius = '4px';
+    document.body.appendChild(popup);
+
+    let isPopupHovered = false;
+
+    // Keep popup visible when hovered
+    popup.addEventListener('mouseenter', () => {
+        isPopupHovered = true;
+        popup.style.display = 'block';
+    });
+
+    popup.addEventListener('mouseleave', () => {
+        isPopupHovered = false;
+        popup.style.display = 'none';
+    });
+
+    demoPopups.forEach(element => {
+        element.addEventListener('mouseenter', (event) => {
+            // Show the popup and position it near the hovered element
+            const rect = event.target.getBoundingClientRect();
+            popup.style.top = `${rect.bottom + window.scrollY + 5}px`;
+            popup.style.left = `${rect.left + window.scrollX}px`;
+            popup.style.display = 'block';
+        });
+
+        element.addEventListener('mouseleave', () => {
+            setTimeout(() => {
+                if (!isPopupHovered) {
+                    popup.style.display = 'none';
+                }
+            }, 100); // Slight delay to allow hover transition
+        });
+    });
+});
+</script></body></html>

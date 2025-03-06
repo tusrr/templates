@@ -45,6 +45,7 @@ Table of Content:
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
 /*---------------------------------------------------- */
 /*----------------------------------------------------*/
+
 .list {
   list-style: none;
   margin: 0px;
@@ -345,6 +346,22 @@ button:focus {
 
 /* Home Banner Area css
 ============================================================================================ */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  font-size: 24px;
+  font-weight: bold;
+  color: #222;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #f42f2c;
+}
+
 .open .side_menu {
   right: 0px; }
 @media (max-width: 1440px) {
@@ -512,6 +529,45 @@ button:focus {
       .side_menu .social li:hover a {
         color: #fff;
         background: #f42f2c; }
+
+        .side_menu {
+          position: fixed;
+          right: -300px; /* Initially hidden */
+          top: 0;
+          height: 100%;
+          background: #f9f9ff;
+          width: 100%;
+          max-width: 300px;
+          text-align: center;
+          padding: 20px;
+          z-index: 20;
+          transition: right 0.3s ease-in-out; /* Smooth slide effect */
+      }
+      
+      /* Open the menu */
+      .side_menu.open {
+          right: 0;
+      }
+      
+      /* Close button styles */
+      .close-btn {
+          position: absolute;
+          top: 15px;
+          right: 15px;
+          background: transparent;
+          border: none;
+          font-size: 24px;
+          font-weight: bold;
+          color: #222;
+          cursor: pointer;
+      }
+      
+      .close-btn:hover {
+          color: #f42f2c;
+      }
+      
+
+
 
 /* Home Banner Area css
 ============================================================================================ */
